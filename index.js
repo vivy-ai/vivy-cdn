@@ -30,7 +30,8 @@ async function main() {
           path = '/' + encodeURIComponent(path.replace('/', ''))
         }
         
-        const target = `/v0/b/${process.env.FIREBASE_BUCKET}/o/` + path + '?alt=media'
+        const target = `/v0/b/${process.env.FIREBASE_BUCKET}/o${path}?alt=media`
+        console.log(target, path)
   
         return target;
       },
