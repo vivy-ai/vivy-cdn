@@ -26,7 +26,7 @@ async function main() {
     proxy({
       host: `https://firebasestorage.googleapis.com`,
       map: function (path) {
-        if (path.split('/').filter(d => !d).length > 1) {
+        if ((path.match(/\//g) || []).length > 1) {
           path = '/' + encodeURIComponent(path.replace('/', ''))
         }
         
