@@ -26,7 +26,7 @@ async function main() {
     proxy({
       host: `https://firebasestorage.googleapis.com`,
       map: function (path) {
-        return `/v0/b/${process.env.FIREBASE_BUCKET}/o` + path + '?alt=media';
+        return `/v0/b/${process.env.FIREBASE_BUCKET}/o` + encodeURIComponent(path) + '?alt=media';
       },
     })
   );
